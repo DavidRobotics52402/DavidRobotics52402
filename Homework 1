@@ -1,0 +1,89 @@
+from random import randint
+
+#1
+print('Hi')
+
+#2
+msg = 'Bob'
+print(msg)
+
+#3
+print(f'Hi,{msg}')
+
+#4
+names = ['Bob', 'Jeff', 'Joe', 'Trump', 'Dave']
+print(names)
+
+#5
+print(names[0:3])
+
+#6
+pop = names.pop()
+print(pop)
+
+#7
+for name in names:
+    print(name)
+
+#8
+sunny = True
+wet = False
+if sunny:
+    print('Go outside')
+    if wet:
+        print('Run')
+    else:
+        print('Play Soccer')
+else:
+    print('Stay inside')
+
+#9
+x = 0
+while x < 20:
+    print('Bob')
+    x = x + 1
+
+#10 - 16
+class Restaurant:
+
+    def __init__(self, rname, cuisine, order, instock):
+        self.order = order
+        self.name = rname
+        self.cuisine = cuisine
+        self.instock = instock
+
+    def menu(self):
+        while self.order != 'Done':
+            if self.order in self.instock:
+                print(f'{self.order} has been added to the list')
+            else:
+                print(f'Sorry, we don\'t have {self.order}')
+            self.order = input('What do you want to order? ')
+        print('Ok, it\'s coming soon!')
+
+    def done(self):
+        print(f'Ok your order is done! Come back to {self.name} soon')
+
+    def info(self):
+        print(f'We are a {self.cuisine} restaurant by the name of {self.name}')
+
+
+#17
+class Restaurant1(Restaurant):
+
+    def __init__(self, rname, cuisine, order, instock):
+        super().__init__(rname, cuisine, order, instock)
+
+
+stock = ['Tacos', 'Taquitos', 'Corn', 'Beans', 'Chips']
+stock1 = ['Burgers', 'French Fries']
+restaurant = Restaurant('MiCocina', 'Mexican', input('What do you want to order? '), stock)
+restaurant1 = Restaurant1('BobsBurgers', 'Fast Food', input('What do you want to order? '), stock1)
+restaurant.menu()
+restaurant.info()
+restaurant.done()
+restaurant1.menu()
+
+#18
+for i in range(100):
+    print(randint(1, 10))
